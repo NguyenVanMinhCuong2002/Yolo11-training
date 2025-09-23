@@ -6,15 +6,16 @@ import os
 
 
 mlflow_uri = os.getenv("MLFLOW_TRACKING_URI")
+model_name = os.getenv("YOLO_MODEL_NAME")
 
 load_dotenv()
 
 # MLflow config
 mlflow.set_tracking_uri(mlflow_uri)
-mlflow.set_experiment("yolov11-experiment")
+mlflow.set_experiment(f"{model_name}-experiment")
 
 # Load model
-model = YOLO("yolo11l.pt")
+model = YOLO(model_name)
 
 # Custom callback: upload model mỗi 10 epoch
 def log_every_10_epochs(trainer):
@@ -36,12 +37,8 @@ with mlflow.start_run():
         epochs=350,
         imgsz=256,
         batch=64,
-        project="yolov11-experiment",
+        project=f"{model_name}-experiment",
         name="exp",
         save_period=10   # YOLO sẽ lưu epoch10.pt, epoch20.pt, ...
     )
 
-    # Sau khi train xong, upload thêm best.pt
-    # best_model = model.trainer.save_dir / "weights" / "best.pt"
-    # if best_model.exists():
-    #     mlflow.log_artifact(str(best_model))

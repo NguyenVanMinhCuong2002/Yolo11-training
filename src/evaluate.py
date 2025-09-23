@@ -3,9 +3,10 @@ import os
 
 dir = "datasets/test/images/"
 list_filename = os.listdir(dir)
+weight_path = "yolov11-experiment/exp2/weights/best.pt"
 
 # Load a model
-model = YOLO("yolov11-experiment/exp2/weights/best.pt")  # pretrained YOLO11n model
+model = YOLO(weight_path)  # pretrained YOLO11n model
 
 for i, filename in enumerate(list_filename, 0):
 # Run batched inference on a list of images
