@@ -2,11 +2,15 @@ import os
 import mlflow
 from ultralytics import YOLO
 from dotenv import load_dotenv
+import os
+
+
+mlflow_uri = os.getenv("MLFLOW_TRACKING_URI")
 
 load_dotenv()
 
 # MLflow config
-mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.set_tracking_uri(mlflow_uri)
 mlflow.set_experiment("yolov11-experiment")
 
 # Load model
