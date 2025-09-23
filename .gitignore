@@ -1,0 +1,6 @@
+src/datasets
+src/predict
+src/yolov11-experiment
+minio_data
+mlruns
+.env
