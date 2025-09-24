@@ -1,0 +1,7 @@
+mlflow
+torch --index-url https://download.pytorch.org/whl/cu126
+torchvision --index-url https://download.pytorch.org/whl/cu126
+boto3
+streamlit
+ultralytics
+dotenv
