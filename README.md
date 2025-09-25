@@ -9,4 +9,4 @@ Val box loss đã bão hòa, trong khi đó box loss vẫn giảm, điều này 
 kiểm tra kết quả Test:
 để kết quả thực sự tốt có lẽ sẽ cần nhiều dữ liệu hơn nữa
 
-![alt text](src/predict/44.jpg)
+![alt text](assets/44.jpg)
